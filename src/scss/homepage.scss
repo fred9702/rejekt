@@ -1,0 +1,217 @@
+@import 'mixins.scss';
+
+@import 'header.scss';
+@import 'artist.scss';
+@import 'about.scss';
+@import 'exhibitions.scss';
+@import 'contact.scss';
+@import 'videos.scss';
+
+
+$color: #fff;
+$size: 50px;
+$border: $size / 25;
+
+
+@font-face {
+  font-family: 'Bebas';
+  src: url('../assets/fonts/bebasneue-regular-webfont.woff2') format('woff2'),
+  url('../assets/fonts/bebasneue-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'Zefani';
+  src: url('../assets/fonts/zefanistenciluppercase-regular-webfont.woff2') format('woff2'),
+  url('../assets/fonts/zefanistenciluppercase-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('../assets/fonts/GothamNarrow-BookItalic.woff2') format('woff2'),
+  url('../assets/fonts/GothamNarrow-BookItalic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+
+html,
+body {
+  margin: 0;
+
+  padding: 0;
+
+  min-width: 100%;
+  width: 100%;
+  max-width: 100%;
+
+  min-height: 100%;
+  height: 100%;
+  max-height: 100%;
+}
+
+body {
+  //overflow: hidden;
+  position: relative;
+  margin: 0;
+}
+
+.section-container {
+  max-width: 1100px;
+  padding: 0 70px;
+  display: block;
+  margin: 0 auto;
+}
+
+.launching {
+  width: 30%;
+  text-align: center;
+  font-size: 50px;
+  letter-spacing: 0.18em;
+  font-family: 'Bebas', sans-serif;
+
+  @include center();
+
+  @media only screen and (max-width: 767px){
+    text-align: left;
+    font-size: 50px;
+    width: initial;
+  }
+}
+
+.home {
+  &--wrapper {
+    img {
+      -webkit-animation: fadein 4s; /* Safari, Chrome and Opera > 12.1 */
+      -moz-animation: fadein 4s; /* Firefox < 16 */
+      -ms-animation: fadein 4s; /* Internet Explorer */
+      -o-animation: fadein 4s; /* Opera < 12.1 */
+      animation: fadein 4s;
+      @include center();
+      width: 560px;
+
+
+      @media only screen and (max-width: 768px){
+        width: 100%;
+      }
+    }
+  }
+}
+
+video {
+  position: fixed;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.video-text {
+  z-index: 99;
+  text-align: center;
+  color: #fff;
+  font-size: 50px;
+  font-family: 'Bebas', sans-serif;
+  letter-spacing: 0.18em;
+  @include center();
+}
+
+.sound {
+  width: $size;
+  height: $size;
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+
+  &--icon {
+    color: $color;
+    width: 75%;
+    height: 100%;
+    line-height: 100%;
+    font-size: $size;
+    display: block;
+    margin: auto;
+  }
+
+  &--wave {
+    position: absolute;
+    border: $border solid transparent;
+    border-right: $border solid $color;
+    border-radius: 50%;
+    transition: all 200ms;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    &_one {
+      width: 50%;
+      height: 50%;
+    }
+
+    &_two {
+      width: 75%;
+      height: 75%;
+    }
+  }
+
+  &-mute .sound--wave {
+    border-radius: 0;
+    width: 50%;
+    height: 50%;
+    border-width: 0 $border 0 0;
+
+    &_one {
+      transform:
+              rotate(45deg)
+              translate3d(0, -50%, 0);
+    }
+
+    &_two {
+      transform:
+              rotate(-45deg)
+              translate3d(0, 50%, 0);
+    }
+  }
+}
+
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

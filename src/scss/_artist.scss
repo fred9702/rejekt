@@ -1,0 +1,260 @@
+.artist {
+  padding-left: 70px;
+  padding-right: 70px;
+  &--wrapper {
+    display: inline-block;
+    width: 385px;
+    padding-top: 10%;
+    height: 400px;
+
+    &:not(:last-child) {
+      margin-right: 80px;
+
+      @media only screen and (max-width: 767px) {
+        margin-right: 0;
+      }
+    }
+
+    @media only screen and (max-width: 767px) {
+      width: 100%;
+      padding-top: 30%;
+      height: auto;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  @media only screen and (max-width: 991px) {
+    padding: 0 15px;
+  }
+}
+
+h2 {
+  font-size: 26px;
+  font-family: 'Bebas', sans-serif;
+  letter-spacing: 0.18em;
+  color: #000;
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+
+.single-artist {
+  padding-left: 65px;
+  padding-top: 2%;
+
+  @media only screen and (max-width: 767px) {
+    padding-left: 35px;
+  }
+
+  @media only screen and (max-width: 767px) {
+    padding: 10% 40px 10px 40px;
+  }
+
+  p {
+    text-transform: uppercase;
+    font-family: 'Bebas', sans-serif;
+    font-size: 15px;
+    margin: 0;
+    padding-top: 15px;
+    padding-bottom: 30px;
+    display: inline-block;
+    cursor: pointer;
+
+    + p {
+      padding-left: 25px;
+    }
+    
+    &.active {
+      color: #808285;
+    }
+  }
+
+  .single-artist--content {
+    display: none;
+
+    &.active {
+      display: block;
+
+      @media only screen and (max-width: 767px) {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+  }
+
+  .single-artist--collections {
+
+    .single-artist--images {
+      div {
+        &:nth-child(4),
+        &:last-child {
+          img {
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  &--text {
+    display: none;
+    width: 600px;
+    p {
+      font-size: 15px;
+      color: #808285;
+      letter-spacing: 0.05em;
+      font-family: 'Gotham', sans-serif;
+      text-transform: initial;
+      cursor: initial;
+
+      @media only screen and (max-width: 768px) {
+        padding-right: 20px;
+      }
+    }
+
+    @media only screen and (max-width: 767px) {
+      width: 100%;
+    }
+
+    &.active {
+      display: block;
+    }
+  }
+
+  &--collections {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  &--gallery {
+    width: 600px;
+    margin-right: 135px;
+    display: inline-block;
+    vertical-align: top;
+
+    @media only screen and (max-width: 1249px) {
+      margin-right: 60px;
+      width: 40%;
+    }
+
+    @media only screen and (max-width: 767px) {
+      width: 250px;
+    }
+
+    @media only screen and (max-width: 767px) {
+      width: 100%;
+      margin-right: 0;
+      order: 1;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    
+    > img {
+      max-width: 600px;
+      max-height: 600px;
+      width: auto;
+      height: auto;
+      display: block;
+
+      @media only screen and (max-width: 767px) {
+        align-self: center;
+        order: 2;
+      }
+    }
+
+    p {
+      padding: 0;
+      color: #808285;
+      font-size: 12px;
+      font-style: italic;
+      font-family: 'Gotham', sans-serif;
+      letter-spacing: 0.05em;
+      text-transform: initial;
+      margin-top: 15px;
+      margin-bottom: 40px;
+
+      @media only screen and (max-width: 767px) {
+        order: 2;
+        margin: 0;
+        padding-top: 10px;
+        padding-bottom: 40px;
+      }
+    }
+  }
+
+  &--images {
+    div {
+      width: 165px;
+      height: 155px;
+      overflow: hidden;
+      display: inline-block;
+      margin-right: 22px;
+      margin-bottom: 22px;
+      position: relative;
+      img {
+        width: 150%;
+        @include center();
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      &:last-child {
+        @media only screen and (max-width: 767px) {
+          margin-right: 0;
+        }
+      }
+
+      @media only screen and (max-width: 1199px) {
+        width: 155px;
+      }
+
+      @media only screen and (max-width: 767px) {
+        margin-bottom: 10px;
+      }
+    }
+
+    @media only screen and (max-width: 767px) {
+      width: 100%;
+      overflow-x: scroll;
+      white-space: nowrap;
+      order: 1;
+    }
+  }
+}
+
+
+@media only screen and (max-width: 767px) {
+  ::-webkit-scrollbar {
+    height: 10px;
+    width: 5px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgba(128,130,133, 0.7);
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #000;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}

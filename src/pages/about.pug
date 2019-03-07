@@ -1,0 +1,38 @@
+doctype html
+html(lang="en")
+    head
+
+        //- Include Meta
+        include ../partials/meta.pug
+
+    body
+
+    //- Include Header
+    include ../partials/header.pug
+
+
+    div.about
+        div.about--wrapper
+            div.text-center
+                div.about--left
+                    h1.about--left__title about
+                    p read more>>>
+
+                div.hidden-lg
+                    include ../partials/about-text
+
+                div.about--right
+                    h1.about--right__title principles
+                    p read more>>>
+
+                div.hidden-lg
+                    include ../partials/about-principles
+
+
+
+            div.hidden-xs
+                include ../partials/about-text
+                include ../partials/about-principles
+
+
+
