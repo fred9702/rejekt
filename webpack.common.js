@@ -3,7 +3,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
 const siteName = "Rejekt";
-const siteUrl = "https://google.com"; // Replace with website URL
+const siteUrl = "http://www.rejektgallery.com/"; // Replace with website URL
 
 module.exports = {
 
@@ -19,6 +19,7 @@ module.exports = {
         exhibitions: './src/assets/exhibitions.js',
         contact: './src/assets/contact.js',
         videos: './src/assets/videos.js',
+        photos: './src/assets/photos.js'
     },
 
     optimization: {
@@ -38,6 +39,16 @@ module.exports = {
             {
                 test: /\.pug$/,
                 use: ['pug-loader']
+            },
+            {
+                test: /\.js$/,
+                exclude: /(node_modules)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env', '@babel/preset-react']
+                    }
+                }
             }
         ]
     },
@@ -135,6 +146,18 @@ module.exports = {
             chunks: ['vendor', 'videos'],
             template: '!!pug-loader!./src/pages/videos.pug',
             title: 'Videos | Rejekt',
+            siteName: siteName,
+            siteUrl: siteUrl,
+            description: '',
+            ogImage: ''
+        }),
+
+        new HtmlWebpackPlugin({
+            hash: true,
+            filename: 'photos.html',
+            chunks: ['vendor', 'photos'],
+            template: '!!pug-loader!./src/pages/photos.pug',
+            title: 'Photos | Rejekt',
             siteName: siteName,
             siteUrl: siteUrl,
             description: '',

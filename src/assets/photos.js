@@ -1,5 +1,5 @@
 import '../scss/homepage.scss';
-
+import '../ReactSwipe.js';
 
 $(document).ready(function(e) {
     $('.mobile--menu').on('click', function() {
